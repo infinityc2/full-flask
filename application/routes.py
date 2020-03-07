@@ -1,4 +1,4 @@
-from application import app
+from application import app, db
 from flask import render_template
 
 @app.route("/")
@@ -6,4 +6,8 @@ from flask import render_template
 @app.route("/index")
 def index():
     return render_template('index.html')
+
+@app.route("/dashboard")
+def dashboard():
+    return render_template('dashboard.html')
     
