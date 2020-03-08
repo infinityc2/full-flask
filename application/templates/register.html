@@ -1,0 +1,63 @@
+{% extends "layouts/layout.html" %}
+{% block title %}Register{% endblock %}
+{% block style %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-center py-3">
+    <div class="card w-75">
+        <div class="card-body">
+            <h5 class="card-title">Register</h5>
+            <form method="post" novalidate>
+                {{ form.hidden_tag() }}
+                <div class="form-group">
+                    <label for="usernameInput">{{ form.username.label }}</label>
+                    {{ form.username(size=20, class="form-control", placeholder="username", id="usernameInput") }}
+                    {% for error in form.username.errors %}
+                    <div class="invalid-feedback">
+                        {{ error }}
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="form-group">
+                    <label for="passwordInput">{{ form.password.label }}</label>
+                    {{ form.password(size=20, class="form-control", placeholder="password", id="passwordInput") }}
+                    {% for error in form.password.errors %}
+                    <div class="invalid-feedback">
+                        {{ error }}
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="form-group">
+                    <label for="confirmPasswordInput">{{ form.password_confirm.label }}</label>
+                    {{ form.password_confirm(size=20, class="form-control", placeholder="confirm password", id="confirmPasswordInput") }}
+                    {% for error in form.password_confirm.errors %}
+                    <div class="invalid-feedback">
+                        {{ error }}
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="form-group">
+                    <label for="firstnameInput">{{ form.first_name.label }}</label>
+                    {{ form.first_name(size=20, class="form-control", placeholder="first name", id="firstnameInput") }}
+                    {% for error in form.first_name.errors %}
+                    <div class="invalid-feedback">
+                        {{ error }}
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="form-group">
+                    <label for="lastnameInput">{{ form.last_name.label }}</label>
+                    {{ form.last_name(size=20, class="form-control", placeholder="last name", id="lastnameInput") }}
+                    {% for error in form.last_name.errors %}
+                    <div class="invalid-feedback">
+                        {{ error }}
+                    </div>
+                    {% endfor %}
+                </div>
+                {{ form.submit(class="btn btn-primary") }}
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

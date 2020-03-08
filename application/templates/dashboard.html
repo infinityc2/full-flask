@@ -1,9 +1,13 @@
 {% extends "layouts/layout.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block style %}
+    {{ super() }}
+{% endblock %}
 {% block content %}
 <div class="d-flex flex-column justify-content-center py-3">
     <div class="card m-auto mb-2">
         <div class="card-body">
-            <h5 class="card-title">Filter</h5>
+            <!-- <h5 class="card-title">Filter</h5>
             <div class="wrapper mb-2">
                 <form class="row wrapper">
                     <div class="col-3 mb-2">
@@ -30,7 +34,7 @@
                         <button class="btn btn-primary text--uppercase" type="submit">search</button>
                     </div>
                 </form>
-            </div>
+            </div> -->
             <table class="table mb-2">
                 <thead>
                     <tr>
@@ -47,6 +51,10 @@
                         <td>{{ user[1] }}</td>
                         <td>{{ user[2] }}</td>
                         <td>{{ user[3] }}</td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <span>No user yet</span>
                     </tr>
                     {% endfor %}
                 </tbody>
