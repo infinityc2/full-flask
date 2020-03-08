@@ -1,9 +1,19 @@
 {% extends "layouts/layout.html" %}
+{% block title %}Home{% endblock %}
+{% block style %}
+    {{ super() }}
+{% endblock %}
 {% block content %}
-
 <h1 class="display-1 text-center">Welcome to my website</h1>
-<div class="d-flex justify-content-center py-3 align-content-between"> 
+{% if session['name'] %}
+<h2 class="display-2 text-center">{{ session['name'] }}</h2>
+{% endif %}
+<div class="d-flex justify-content-center py-3 align-content-between">
+    {% if session['username'] %}
+    <a class="btn btn-primary" href="{{ url_for('dashboard') }}">Dashboard</a>
+    {% else %}
     <a class="btn btn-primary mr-2" href="{{ url_for('login') }}">Login</a>
-    <a class="btn btn-primary mr-2" href="#">Register</a>
+    <a class="btn btn-primary mr-2" href="{{ url_for('register') }}">Register</a>
+    {% endif %}
 </div>
 {% endblock %}
