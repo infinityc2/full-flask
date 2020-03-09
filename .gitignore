@@ -5,3 +5,5 @@ __pycache__
 # ide
 .vscode
 .idea
+
+venv
